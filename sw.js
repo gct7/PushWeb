@@ -2,7 +2,7 @@ self.addEventListener('push', function(event) {
     console.log('[Service Worker] Push Received.');
     console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
     
-    const title = 'Push Codelab';
+    let title = 'Push Student Arrivals';
     /**
      * Options for configuring the notification.
      * @typedef {Object} NotificationOptions
@@ -11,7 +11,7 @@ self.addEventListener('push', function(event) {
      * @property {string} badge - The URL of the badge to be displayed in the notification.
      */
 
-    const options = {
+    var options = {
         /**
          * The body text of the notification.
          * @type {string}
@@ -22,13 +22,25 @@ self.addEventListener('push', function(event) {
          * The URL of the icon to be displayed in the notification.
          * @type {string}
          */
-        icon: 'images/icon.png',
+        icon: './Images/11.png',
         
         /**
          * The URL of the badge to be displayed in the notification.
          * @type {string}
          */
-        badge: 'images/badge.png'
+        //badge: 'images/badge.png'
+
+        vibrate : [100, 50, 100],
+        data : {
+            dateOfArrival : Date.now(),
+            primaryKey : 1
+        },
+        actions : [
+            {action : 'Absence', title : 'Check-in Details',
+            icon : './Images/11.png'},
+            {action : 'close', title : 'Close',
+            icon : './Images/11.png'}
+        ]   
     };
     
     event.waitUntil(self.registration.showNotification(title, options));
