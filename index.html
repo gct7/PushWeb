@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Web Page</title>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+    <button onclick="subscribe()">Subscribe</button>
+    <script>
+        addEventListener('load', async () => {
+            const sw = await navigator.serviceWorker.register('sw.js');
+            console.log('Service worker registered:', sw);
+        });
+
+        async function subscribe() {
+            const sw = await navigator.serviceWorker.ready;
+            const push = await sw.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: new Uint8Array([
+                    0x04, 0x1   , 0x0d, 0x0e, 0x0f, 0x10, 0x11, 0x12,       0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a,     0x1b, 0x1c, 0x1d, 0x1e, 0x1f, 0x20, 0x21, 0x22,       0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a])
+            });
+            console.log('Subscribed:', JSON.stringify(push));
+            //alert('Thanks for subscribing!');
+        }   
+    </script>
+</body>
+</html>
