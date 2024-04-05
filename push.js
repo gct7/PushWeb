@@ -10,11 +10,11 @@ let vapidKeys = {
 push.setVapidDetails('mailto:min.hua.wang@gmail.com', vapidKeys.publicKey, vapidKeys.privateKey)
 
 let subscription = {
-    endpoint: "https://fcm.googleapis.com/fcm/send/c4g3JQH9ZqY:APA91bG6Wg9q7vLgZ2wP4J4lT9Uz1Oyf9G7v3wQc3hKwU6F9lq6Z4v6b2b1X9j8Z2z4WVzv3j7w5Q4w6z5Y9fD0W5h2Q0Q",   
+    endpoint: "https://fcm.googleapis.com/fcm/send/dS7nZbyozHI:APA91bFnizgUeUYSBdNwnnWhtJNYVAYkKKuv3ZxujS3hAnYIyg7jjERJMzfRq3JQNwiOk1bz36BImpTEWxDWUYRFZljiq6_Vf62Hym-7i7iHIW3DNSJ-LSS_I6Vn1eJNe-GvEdUvVFC-",   
     expirationTime: null,
     keys: {
-        p256dh: "BOLv6WU8V",
-        auth
+        p256dh: "BIhAE6zWZrpn_Ivlq51FpxNnCVtw4J5hJLP7VzyxPR3pYnhU7MJ73B8udGvzZjpCofoPZiuEH_0hjm9Q4Pw_3Ag",
+        auth: "M9KJWYTH9gh4rkXHBMAlnw"
     }};
-push.sendNotification(subscription, 'test message');
+push.sendNotification(subscription, 'OptView Student Check-in message');
 
